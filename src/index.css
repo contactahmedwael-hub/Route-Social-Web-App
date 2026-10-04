@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rp-navy: #00298d;
+  --color-rp-navy-dark: #001c66;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #eef1f6;
+}
