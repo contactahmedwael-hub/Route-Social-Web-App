@@ -2,7 +2,7 @@
 
 A social web app built on the [Route Posts API](https://route-posts.routemisr.com): share posts, follow people, comment, and keep up with notifications.
 
-[#Live Demo: route-social-web-app.vercel.app](https://route-social-web-app.vercel.app/)
+**Live Demo:** [route-social-web-app.vercel.app](https://route-social-web-app.vercel.app/)
 
 ## Features
 
