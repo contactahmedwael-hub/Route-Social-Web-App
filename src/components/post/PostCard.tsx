@@ -418,27 +418,44 @@ export default function PostCard({
       )}
 
       <div
-        className={`mt-3 flex items-center justify-between gap-3 text-sm text-gray-500 ${
+        className={`mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-sm text-gray-500 ${
           image && !editing ? "px-4 pt-1" : "mx-4 pt-3 border-t border-gray-100"
         }`}
       >
-        <div className="flex items-center gap-4 min-w-0">
+        {/* On phones only the numbers show (the icons say what they are); the
+            words come back from the `sm` breakpoint up. Nothing wraps. */}
+        <div className="flex items-center gap-3 sm:gap-4 whitespace-nowrap">
           <button
             onClick={handleToggleLikers}
             disabled={likes === 0}
+            title={`${likes} ${likes === 1 ? "like" : "likes"}`}
             className="flex items-center gap-1.5 hover:underline disabled:no-underline disabled:cursor-default"
           >
-            <FiThumbsUp className="text-blue-600" /> {likes} likes
+            <FiThumbsUp className="text-blue-600" />
+            <span>{likes}</span>
+            <span className="hidden sm:inline">{likes === 1 ? "like" : "likes"}</span>
           </button>
-          <span className="flex items-center gap-1.5">
-            <FiRepeat className="text-blue-600" /> {shares} shares
+          <span
+            title={`${shares} ${shares === 1 ? "share" : "shares"}`}
+            className="flex items-center gap-1.5"
+          >
+            <FiRepeat className="text-blue-600" />
+            <span>{shares}</span>
+            <span className="hidden sm:inline">{shares === 1 ? "share" : "shares"}</span>
           </span>
-          <span className="flex items-center gap-1.5">
-            <FiMessageCircle className="text-blue-600" /> {commentsCount} comments
+          <span
+            title={`${commentsCount} ${commentsCount === 1 ? "comment" : "comments"}`}
+            className="flex items-center gap-1.5"
+          >
+            <FiMessageCircle className="text-blue-600" />
+            <span>{commentsCount}</span>
+            <span className="hidden sm:inline">
+              {commentsCount === 1 ? "comment" : "comments"}
+            </span>
           </span>
         </div>
         {formatPostDate(getPostCreatedAt(post)) && (
-          <span className="flex items-center gap-1.5 text-xs font-medium text-gray-500 shrink-0">
+          <span className="flex items-center gap-1.5 text-xs font-medium text-gray-500 shrink-0 whitespace-nowrap ml-auto">
             <FiClock /> {formatPostDate(getPostCreatedAt(post))}
           </span>
         )}
